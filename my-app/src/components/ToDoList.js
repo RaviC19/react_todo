@@ -11,11 +11,11 @@ const data = [
 function TodoList() {
   const [todos, setTodos] = useState(data);
 
-  function toggleComplete(index) {
+  function deleteTodo(index) {
     console.log("clicked ", index);
-    const newTodos = [...todos.slice(0, index), ...todos.slice(index + 1)];
+    const removeTodos = [...todos.slice(0, index), ...todos.slice(index + 1)];
 
-    setTodos(newTodos);
+    setTodos(removeTodos);
   }
 
   return (
@@ -24,8 +24,8 @@ function TodoList() {
         return (
           <ToDoItem
             todo={item}
-            toggleComplete={function() {
-              toggleComplete(i);
+            deleteTodo={function() {
+              deleteTodo(i);
             }}
           />
         );
